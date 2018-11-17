@@ -46,7 +46,6 @@ If connectivity to the internet (and therefore ES instance) is not available, re
 
 - Update config to change elasticsearch host and elasticsearch index name (if necessary).
 
-
 - Enable `redis-server` service is start on reboot
 
 `sudo systemctl enable redis-server`
@@ -85,13 +84,17 @@ If connectivity to the internet (and therefore ES instance) is not available, re
 - From within the `./moneypit-internet-monitor` folder install Node dependencies
 
 ```
+
   $ npm install
+
 ```
 
 - Edit the `./moneypit-internet-monitor/.env` file to set port that ui / api will listen on
 
 ```
-PORT=3000
+
+  PORT=3000
+
 ```
 
 - Setup the following cron jobs:
@@ -115,6 +118,6 @@ sudo reboot
 
 ## APIs
 
-`GET /` => Swagger docs
+`GET /api/` => Swagger docs
 
-`GET /power` => Returns current power information
+`GET /api/internet` => Returns current internet information
