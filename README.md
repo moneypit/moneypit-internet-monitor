@@ -75,26 +75,32 @@ If connectivity to the internet (and therefore ES instance) is not available, re
 	  printf "My IP address is %s\n" "$_IP"
 	fi
 
-	# Start moneypit-power-monitor node app / api
-	sudo /usr/bin/npm start --cwd /home/pi/moneypit-power-monitor --prefix /home/pi/moneypit-power-monitor &
-
-  # Start power monitoring script
-  sudo /usr/bin/python /home/pi/moneypit-power-monitor/scripts/fetch-power.py /home/pi/moneypit-power-monitor/config.json &
+	# Start moneypit-internet-monitor node app / api
+	sudo /usr/bin/npm start --cwd /home/pi/moneypit-internet-monitor --prefix /home/pi/moneypit-internet-monitor &
 
 	exit 0
 
 ```
 
-- From within the `./moneypit-fan-controller-folder` install Node dependencies
+- From within the `./moneypit-internet-monitor` folder install Node dependencies
 
-  ```
-   $ npm install
-  ```
+```
+  $ npm install
+```
+
+- Edit the `./moneypit-internet-monitor/.env` file to set port that ui / api will listen on
+
+```
+PORT=3000
+```
 
 - Setup the following cron jobs:
 
 ```
-* * * * * python /home/pi/moneypit-power-monitor/scripts/post-power.py /home/pi/moneypit-power-monitor/config.json
+
+* * * * * php /home/pi/moneypit-internet-monitor/scripts/fetch-internet-status.php /home/pi/moneypit-internet-monitor/config.json
+* * * * * python /home/pi/moneypit-internet-monitor/scripts/post-to-es.py /home/pi/moneypit-internet-monitor/config.json
+
 ```
 
 - Reboot the device to start processes

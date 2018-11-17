@@ -6,6 +6,8 @@ var logger = require('morgan');
 var redis = require('redis');
 var cors = require('cors')
 
+require('dotenv').config()
+
 var indexRouter = require('./routes/index');
 
 // Load config
