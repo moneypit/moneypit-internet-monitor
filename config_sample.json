@@ -1,0 +1,22 @@
+{ "device": "mp-internet-monitor",
+  "location": "moneypitmine",
+  "hosts": {
+    "google_dns": {
+      "host": "8.8.8.8"
+    },
+    "cloudflare_dns": {
+      "host": "1.1.1.1"
+    }
+  },
+  "redis": {
+    "host": "localhost",
+    "port": "6379",
+    "key": "mp-internet-monitor"
+  },
+  "elasticsearch": {
+    "hosts": [
+      "https://elastic:xxx.us-east-1.aws.found.io:9243"
+    ],
+    "index": "mp-internet-monitor"
+  }
+}
