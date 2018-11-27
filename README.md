@@ -84,8 +84,9 @@ If connectivity to the internet (and therefore ES instance) is not available, re
 - From within the `./moneypit-internet-monitor` folder install Node dependencies
 
 ```
-
-  $ npm install
+  wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet
+php composer.phar install
+npm install
 
 ```
 
